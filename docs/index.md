@@ -2,4 +2,6 @@
 
 Please click the links below for practical materials:
     
-- [Microbiome](microbiome.md)
+- [Module 5: Transcriptomics](transcriptomics.md)
+- [Module 6: Microbiome](microbiome.md)
+- [Module 7: GWAS](gwas.md)
