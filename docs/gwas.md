@@ -122,7 +122,7 @@ perl run-IBD-QC.pl MD
 ```
 
 !!! info
-    The code also looks at the individual call rates stored in MD.imiss and outputs the ID of the individual with the lower call rate to fail_IBD-QC.txt for each pair of related individuals. 
+    The code also looks at the individual call rates stored in MD.imiss and outputs the ID of the individual with the lower call rate to **fail_IBD-QC.txt** for each pair of related individuals. 
 
 To visualise the IBD rates, type: 
 
@@ -153,27 +153,15 @@ This outputs **pca_plot.pdf**
 
 ![](img/gwas_3.jpg)
 
-```
-Data in column 4 is used to colour the points according to phenotype (i.e. case vs control). Here, we chose to exclude all individuals with a 2nd principal component score >0.07. 
-```
+!!! info
+    Data in column 4 is used to colour the points according to phenotype (i.e. case vs control). Here, we chose to exclude all individuals with a 2nd principal component score >0.07. 
 
-For the next R script we need to install the reshape package. Fire up R by typing R and install the package via 
-
-```
-options(download.file.method = "wget")
-install.packages("reshape")
-```
-
-You can check the installation by importing the package with library(reshape). Then, close R (with ctrl-d) and run 
-```
-library(reshape)
-```
 
 ```
 R CMD BATCH write_pca_fail.R
 ```
 
-To write the FID and IID of the filtered individuals to a file called fail_PCA.txt. 
+To write the FID and IID of the filtered individuals to a file called **fail_pca.txt**. 
 
 !!! question
     How many individuals failed the PCA threshold? 
@@ -301,8 +289,10 @@ This generates both plots: final.MD.assoc_qq.png and final.MD.assoc_mhplot.png
 Let’s zoom into a region of interest: the tower of SNPs on CHR1 (coloured in yellow). This the Complement Factor H (CFH) region known to be associated with Meningococcal disease. The previous Rscript in 8.2.2 above also generated the chr1_CFH_region.txt file. 
 
  * Open the locuszoom webpage: http://locuszoom.org/genform.php?type=yourdata
- * Upload the text file and select PLINK data format.
- * Enter the most associated snp (“rs1065489”) with a flanking size of 500KB
+ * Upload the text file (final.MD.assoc.assoc.adjusted)
+ * Set The P-Value column name to be "GC"
+ * Set the Marker column name to be "SNP"
+ * In the region section, enter the most associated snp (“rs1065489”) with a flanking size of 500KB
  * In the Genome Build/LD Population field select the appropriate hg19 european ref panel.
  * Then press "Plot Data" to generate your plot.
 
